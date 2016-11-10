@@ -15,6 +15,8 @@ Session::SharedPtr Session::create(tcp::socket socket)
 Session::Session(tcp::socket socket)
 	: socket_(std::move(socket))
 {
+	socket_.set_option(tcp::no_delay(false));
+
 	Start();
 }
 
