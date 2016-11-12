@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "session.h"
 #include "session_manager.h"
+#include "packet_parser.h"
 
 auto manager = SessionManager::GetManager();
 
@@ -53,7 +54,13 @@ void Session::HandlePacket(std::size_t bytes_transferred)
 
 	// TODO : handle Packet.
 	while (buffer_.ReadableLength()) {
-		buffer_.Consume(bytes_transferred);
+		auto length = PacketParser::ParseAndHandlePacket(buffer_.Begin(), buffer_.ReadableLength());
+
+		if (0 == length) {
+			break;
+		}
+
+		buffer_.Consume(length);
 	}
 
 	if (0 == buffer_.WriteableLength()) {

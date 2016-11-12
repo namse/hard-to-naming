@@ -14,6 +14,7 @@
 #include <queue>
 #include <iostream>
 #include <tchar.h>
+#include <stdexcept>
 
 #define ASIO_STANDALONE
 #define ASIO_HAS_STD_ADDRESSOF

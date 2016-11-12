@@ -8,6 +8,9 @@
     <ClCompile Include="session_manager.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="..\..\proto\packet.pb.cc" />
+    <ClCompile Include="..\..\proto\packet_parser.cpp" />
+    <ClCompile Include="packet_handler\packet_handler_test_packet.cpp" />
+    <ClCompile Include="packet_handler\packet_handler_test_packet2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="acceptor.h" />
@@ -17,6 +20,7 @@
     <ClInclude Include="session_manager.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="..\..\proto\packet.pb.h" />
+    <ClInclude Include="packet_parser.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="lib">
