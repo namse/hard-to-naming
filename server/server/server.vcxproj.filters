@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="acceptor.cpp" />
+    <ClCompile Include="buffer.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="session.cpp" />
+    <ClCompile Include="session_manager.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="..\..\proto\packet.pb.cc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="acceptor.h" />
+    <ClInclude Include="buffer.h" />
+    <ClInclude Include="config.h" />
+    <ClInclude Include="session.h" />
+    <ClInclude Include="session_manager.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="..\..\proto\packet.pb.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="lib">
+      <UniqueIdentifier>{6a5d456e-0873-4844-99e4-d7cd7e0fc811}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\x86">
+      <UniqueIdentifier>{cba37c6f-377b-4113-b85c-0a25f0bcec47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\x64">
+      <UniqueIdentifier>{6c9cfc32-1073-4c9d-ae2a-b9da2a0b70c5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\common\lib\x86\libprotobuf.lib">
+      <Filter>lib\x86</Filter>
+    </Library>
+    <Library Include="..\..\common\lib\x86\libprotobufd.lib">
+      <Filter>lib\x86</Filter>
+    </Library>
+    <Library Include="..\..\common\lib\x86\libtcmalloc_minimal.lib">
+      <Filter>lib\x86</Filter>
+    </Library>
+    <Library Include="..\..\common\lib\x64\libprotobuf.lib">
+      <Filter>lib\x64</Filter>
+    </Library>
+  </ItemGroup>
+</Project>
