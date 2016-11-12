@@ -1,3 +1,5 @@
 *.pb.cc
 *.pb.h
 *.proto
+*.generated.cpp
+packet_parser.cpp

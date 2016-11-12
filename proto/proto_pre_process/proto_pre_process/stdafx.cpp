@@ -1,8 +1,33 @@
-// stdafx.cpp : 표준 포함 파일만 들어 있는 소스 파일입니다.
-// proto_pre_process.pch는 미리 컴파일된 헤더가 됩니다.
-// stdafx.obj에는 미리 컴파일된 형식 정보가 포함됩니다.
-
 #include "stdafx.h"
 
-// TODO: 필요한 추가 헤더는
-// 이 파일이 아닌 STDAFX.H에서 참조합니다.
+std::string ToUppercaseUnderscore(std::string target) {
+	std::string ret;
+	for (std::size_t i = 0; i < target.length(); i++) {
+		auto current_char = target[i];
+		ret.push_back(std::toupper(current_char));
+
+		if (i + 1 < target.length()) {
+			auto next_char = target[i + 1];
+			if ('A' <= next_char && next_char <= 'Z') {
+				ret.push_back('_');
+			}
+		}
+	}
+	return ret;
+}
+
+std::string ToLowercaseUnderscore(std::string target) {
+	std::string ret;
+	for (std::size_t i = 0; i < target.length(); i++) {
+		auto current_char = target[i];
+		ret.push_back(std::tolower(current_char));
+
+		if (i + 1 < target.length()) {
+			auto next_char = target[i + 1];
+			if ('A' <= next_char && next_char <= 'Z') {
+				ret.push_back('_');
+			}
+		}
+	}
+	return ret;
+}

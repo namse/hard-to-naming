@@ -12,3 +12,6 @@
 #include <locale> 
 #include <algorithm>
 #include <cctype>
+
+std::string ToUppercaseUnderscore(std::string target);
+std::string ToLowercaseUnderscore(std::string target);
