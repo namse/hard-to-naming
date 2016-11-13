@@ -7,11 +7,11 @@ public:
 	using SharedPtr = std::shared_ptr<Session>;
 	static SharedPtr create(tcp::socket socket);
 
+	void Start();
 protected:
 	Session(tcp::socket socket);
 
 private:
-	void Start();
 	void Read();
 	void Disconnect();
 	void HandlePacket(std::size_t bytes_transferred);

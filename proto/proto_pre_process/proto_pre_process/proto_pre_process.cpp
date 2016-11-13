@@ -6,7 +6,8 @@ int main()
 {
 	std::ifstream in_stream("packet.preproto");
 	std::ofstream out_stream("packet.proto");
-	out_stream << "package packet;\n\n";
+	out_stream << "syntax = \"proto3\";\n"
+		"package packet;\n\n";
 
 	std::vector<std::string> message_names;
 	std::vector<std::string> uppercase_message_names;
@@ -27,11 +28,9 @@ int main()
 			message_names.push_back(message_name);
 			uppercase_message_names.push_back(upper_message_name);
 
-			out_stream << "message " << message_name << " {\n"
-				<< "  required uint32 length = 1;\n"
-				<< "  required PacketType type = 2 [default = " << upper_message_name << "];\n\n";
+			out_stream << "message " << message_name << " {\n";
 			
-			int index = 3;
+			int index = 1;
 			for (std::string line; std::getline(in_stream, line);) {
 				if (line[0] == '}') {
 					break;
@@ -56,12 +55,8 @@ int main()
 	}
 
 	out_stream << "\n\n"
-		<< "message PacketHeader {\n"
-		<< "  required uint32 length = 1;\n"
-		<< "  required PacketType type = 2;\n"
-		<< "}\n\n"
 		<< "enum PacketType {\n";
-	int index = 1;
+	int index = 0;
 	for (auto& name : uppercase_message_names) {
 		out_stream << "  " << name << " = " << index++ << ";\n";
 	}

@@ -11,6 +11,7 @@
     <ClCompile Include="..\..\proto\packet_parser.cpp" />
     <ClCompile Include="packet_handler\packet_handler_test_packet.cpp" />
     <ClCompile Include="packet_handler\packet_handler_test_packet2.cpp" />
+    <ClCompile Include="..\..\proto\packet_header.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="acceptor.h" />
@@ -21,6 +22,7 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="..\..\proto\packet.pb.h" />
     <ClInclude Include="packet_parser.h" />
+    <ClInclude Include="..\..\proto\packet_header.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="lib">

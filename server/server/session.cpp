@@ -17,13 +17,12 @@ Session::Session(tcp::socket socket)
 	: socket_(std::move(socket))
 {
 	socket_.set_option(tcp::no_delay(false));
-
-	Start();
 }
 
 void Session::Start()
 {
 	manager->Join(shared_from_this());
+	Read();
 }
 
 void Session::Read()

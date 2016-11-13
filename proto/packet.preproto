@@ -1,11 +1,10 @@
 packet TestPacket {
-  required string name
-  required int32 id
-  optional string email
+  int32 id
 }
 
 packet TestPacket2 {
-  required string name
-  required int32 id
-  optional string email
+  string name
+  int32 id
+  string email
+  string email2
 }

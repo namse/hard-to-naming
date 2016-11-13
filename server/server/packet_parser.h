@@ -1,33 +1,34 @@
 #pragma once
 #include "packet.pb.h"
-
+#include "packet_header.h"
 class PacketParser {
 
 public:
 	/**
 	* @return handled size
 	*/
-	static std::size_t ParseAndHandlePacket(const char* buffer, std::size_t length) {
+	static std::size_t ParseAndHandlePacket(char* const buffer, std::size_t length) {
 		packet::PacketHeader header;
 		std::size_t parsed_length = 0;
 
 		while (parsed_length < length) {
 			const auto current_buffer = buffer + parsed_length;
 			const auto readable_length = length - parsed_length;
-
-			auto is_parsing_header_successful = header.ParseFromArray(current_buffer, readable_length);
+			
+			std::size_t header_size;
+			auto is_parsing_header_successful = header.ParseFromArray(current_buffer, readable_length, header_size);
 			if (!is_parsing_header_successful) {
 				break;
 			}
 
-			auto is_received_not_enough = readable_length < header.length();
+			auto is_received_not_enough = readable_length < header.length_ + header_size;
 			if (is_received_not_enough) {
 				break;
 			}
 
-			ParseTypeAndCallPacketHandler(header.type(), current_buffer, header.length());
+			ParseTypeAndCallPacketHandler(header.type_, current_buffer + header_size, header.length_);
 
-			parsed_length += header.length();
+			parsed_length += header.length_ + header_size;
 		}
 
 		return parsed_length;
